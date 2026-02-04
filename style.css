@@ -1,0 +1,36 @@
+body { margin:0; height:100vh; font-family:Arial,sans-serif; background: linear-gradient(120deg,#ff7a9e,#ffd1dc); overflow:hidden; position:relative; }
+
+#cardsScreen { width:100%; height:100%; display:flex; justify-content:center; align-items:center; }
+.card { width:150px; height:200px; background:#fff; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.3); display:flex; justify-content:center; align-items:center; cursor:pointer; transition:0.3s; margin:0 10px; }
+.card:hover { transform:scale(1.05); }
+
+#flipScreen { position:absolute; top:0; left:0; width:100%; height:100%; display:none; flex-direction:column; align-items:center; justify-content:center; }
+.book { width:200px; height:260px; perspective:2000px; position:relative; }
+.page { position:absolute; width:100%; height:100%; transform-origin:left; transform-style:preserve-3d; transition:transform 0.9s; cursor:pointer; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+.side { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:10px; display:flex; justify-content:center; align-items:center; text-align:center; padding:20px; box-sizing:border-box; }
+.front { background:#fff; }
+.front p { color:#d6336c; font-size:16px; margin:0; }
+.back { background-size:cover; background-position:center; transform:rotateY(180deg); }
+.page.flipped { transform:rotateY(-180deg); }
+
+.bigCard { width:400px; height:250px; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.3); display:flex; margin-bottom:20px; }
+.bigCard div { flex:1; display:flex; justify-content:center; align-items:center; padding:10px; box-sizing:border-box; }
+
+button { padding:10px 20px; background:#d6336c; color:#fff; border:none; border-radius:10px; cursor:pointer; margin:10px; }
+button:hover { background:#ff4a91; }
+#backBtn { position:absolute; left:20px; bottom:20px; }
+#nextBtn { position:absolute; left:50%; transform:translateX(-50%); bottom:20px; display:none; }
+
+#finalScreen { display:none; width:100%; height:100%; justify-content:center; align-items:center; position:relative; }
+#finalBox { width:350px; height:250px; background:#fff; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.3); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px; position:relative; z-index:2; }
+#finalMessage { display:none; margin-top:20px; font-size:32px; color:#d6336c; text-align:center; position:relative; z-index:2; }
+
+#leafCanvas, #heartCanvas { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+
+.bigCard p { margin:0; padding:10px; text-align:center; }
+
+.heart { font-size:24px; cursor:pointer; color:#ccc; margin:2px; transition:color 0.2s; }
+.heart.selected { color:#d6336c; }
+
+#photoOverlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; cursor:pointer; transition:opacity 0.3s ease; }
+#photoOverlay img { max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.5); }
