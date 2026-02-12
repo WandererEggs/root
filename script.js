@@ -215,7 +215,8 @@ function showFinalStep() {
 
   if (finalStep === 0) {
     const p = document.createElement('p');
-    p.textContent = 'Мы вместе уже как 3 месяца!🎉';
+    p.textContent = 'Я люблю тебя, солнышко, и с нетерпением жду момента, когда смогу сказать тебе это прямо в глаза.
+А теперь — финальная часть, не забудь оставить свои оценки.';
     finalBox.appendChild(p);
     finalBox.appendChild(btn);
   } 
@@ -268,3 +269,4 @@ nextBtn.addEventListener('click', () => {
   document.getElementById('finalScreen').style.display = 'flex';
   showFinalStep();
 });
+
